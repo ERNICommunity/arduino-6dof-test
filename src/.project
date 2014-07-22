@@ -37,6 +37,16 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>prod</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Libraries/LiquidCrystal</name>
+			<type>2</type>
+			<locationURI>ArduinoPivateLibPath/LiquidCrystal</locationURI>
+		</link>
+		<link>
 			<name>Libraries/Wire</name>
 			<type>2</type>
 			<locationURI>ArduinoHardwareLibPath/Wire</locationURI>
@@ -57,9 +67,24 @@
 			<locationURI>arduino_6dof_testFreeSixIMU/FreeSixIMU</locationURI>
 		</link>
 		<link>
+			<name>comp/LcdKeypad</name>
+			<type>2</type>
+			<locationURI>arduino_6dof_testLcdKeypad/LcdKeypad</locationURI>
+		</link>
+		<link>
 			<name>plat/Timer</name>
 			<type>2</type>
 			<locationURI>arduino_6dof_testTimer/Timer</locationURI>
+		</link>
+		<link>
+			<name>prod/mmi</name>
+			<type>2</type>
+			<locationURI>arduino_6dof_testmmi/mmi</locationURI>
+		</link>
+		<link>
+			<name>prod/sockets</name>
+			<type>2</type>
+			<locationURI>arduino_6dof_testsockets/sockets</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>

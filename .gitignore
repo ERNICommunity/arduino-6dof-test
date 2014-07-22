@@ -2,3 +2,6 @@
 /src/Release
 /workspace/RemoteSystemsTempFiles
 /workspace/.metadata
+/tools/arduino
+/tools/eclipseArduino
+/tools/processing
