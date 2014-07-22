@@ -1,0 +1,6 @@
+[submodule "lib/comp/lcdkeypad"]
+	path = lib/comp/lcdkeypad
+	url = http://code.google.com/p/arduino-display-lcdkeypad/
+[submodule "lib/plat/timer"]
+	path = lib/plat/timer
+	url = https://code.google.com/p/arduino-utils-timer/
