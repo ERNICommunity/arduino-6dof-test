@@ -24,31 +24,33 @@
 							</builder>
 							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.155324303" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
 								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.212704815" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/arduino/core}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/FreeSixIMU"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/Timer"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/Libraries/Wire}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/LcdKeypad"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/mmi"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/sockets"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.2097245937" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
 							<tool id="it.baeyens.arduino.tool.compiler.c.745216388" name="Arduino C Compiler" superClass="it.baeyens.arduino.tool.compiler.c">
 								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.920142324" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/arduino/core}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/FreeSixIMU"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/Timer"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/Libraries/Wire}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/LcdKeypad"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/mmi"/>
 									<listOptionValue builtIn="false" value="../arduino_6dof_test/sockets"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1812400738" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
@@ -89,12 +91,13 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/comp/FreeSixIMU}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/plat/Timer}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/comp/LcdKeypad}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/mmi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/sockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.204696428" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
@@ -104,12 +107,13 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/comp/FreeSixIMU}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/plat/Timer}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/comp/LcdKeypad}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/mmi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/sockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/LiquidCrystal/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/Libraries/Wire/utility}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.893052268" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
@@ -134,4 +138,5 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

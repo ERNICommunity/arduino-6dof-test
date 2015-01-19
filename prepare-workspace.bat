@@ -9,12 +9,12 @@ set ProcessingDownloadUrl=http://download.processing.org
 set ProcessingVer=2.2.1
 
 :: Arduino IDE (see http://arduino.cc/en/Main/OldSoftwareReleases) 
-set ArduinoDownloadUrl=http://downloads.arduino.cc
-set ArduinoVer=1.5.2
+set ArduinoDownloadUrl=http://arduino.cc/download.php?f=
+set ArduinoVer=1.5.6-r2
 
 :: Eclipse Arduino Workbench Bundle (see http://www.baeyens.it/eclipse/download.php)
 set EclipseArduinoDownloadUrl=http://www.baeyens.it/eclipse/download/product
-set EclipseArduinoVer=2014-07-02_17-56-02
+set EclipseArduinoVer=2015-01-13_02-06-58
 
 :: Expected Project Location (Eclipse CDT cannot deal with relative paths)
 set ArduinoProjects=C:\git\arduino-projects
@@ -25,10 +25,8 @@ set ExpectedProjectHome=%ArduinoProjects%\arduino-6dof-test\
 ::-----------------------------------------------------------------------------
 IF "%PROCESSOR_ARCHITECTURE%;%PROCESSOR_ARCHITEW6432%"=="x86;" (
   set OsVariant=win32
-  set OsVariantLong=windows32
 ) ELSE (
   set OsVariant=win64
-  set OsVariantLong=windows64
 )
 
 ::-----------------------------------------------------------------------------
@@ -161,6 +159,10 @@ call build.bat
 if %errorlevel% == 0 goto end
 :: revert src/.project that have been made dirty by the failing build
 %Git% checkout -- %ProjectHome%\src\.project
+
+:: run second build
+call build.bat
+if %errorlevel% == 0 goto end
 
 :error
 msg "%username%" An error occured!

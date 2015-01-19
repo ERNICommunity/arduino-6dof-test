@@ -44,7 +44,7 @@
 		<link>
 			<name>Libraries/LiquidCrystal</name>
 			<type>2</type>
-			<locationURI>ArduinoPivateLibPath/LiquidCrystal</locationURI>
+			<locationURI>ArduinoLibPath/LiquidCrystal</locationURI>
 		</link>
 		<link>
 			<name>Libraries/Wire</name>
@@ -90,15 +90,15 @@
 	<variableList>
 		<variable>
 			<name>ArduinoHardwareLibPath</name>
-			<value>$%7BArduinoPath%7D/hardware/arduino/avr/libraries</value>
+			<value>file:/C:/git/arduino-projects/arduino-6dof-test/tools/arduino/hardware/arduino/avr/libraries</value>
 		</variable>
 		<variable>
 			<name>ArduinoPinPath</name>
-			<value>$%7BArduinoPath%7D/hardware/arduino/avr/variants</value>
+			<value>file:/C:/git/arduino-projects/arduino-6dof-test/tools/arduino/hardware/arduino/avr/variants</value>
 		</variable>
 		<variable>
 			<name>ArduinoPlatformPath</name>
-			<value>$%7BArduinoPath%7D/hardware/arduino/avr</value>
+			<value>file:/C:/git/arduino-projects/arduino-6dof-test/tools/arduino/hardware/arduino/avr</value>
 		</variable>
 	</variableList>
 </projectDescription>
