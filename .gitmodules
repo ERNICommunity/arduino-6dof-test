@@ -1,6 +1,9 @@
-[submodule "lib/comp/lcdkeypad"]
-	path = lib/comp/lcdkeypad
-	url = http://code.google.com/p/arduino-display-lcdkeypad/
 [submodule "lib/plat/timer"]
 	path = lib/plat/timer
-	url = https://code.google.com/p/arduino-utils-timer/
+	url = git@github.com:dniklaus/arduino-utils-timer.git
+	branch = Branch_2.1.2
+[submodule "lib/comp/lcdkeypad"]
+	path = lib/comp/lcdkeypad
+	url = git@github.com:dniklaus/arduino-display-lcdkeypad.git
+	branch = Branch_1.0.1
+	
