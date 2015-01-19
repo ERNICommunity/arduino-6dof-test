@@ -1,4 +1,8 @@
-@echo off
+::-----------------------------------------------------------------------------
+:: Build Target Name
+::-----------------------------------------------------------------------------
+set buildTarget=arduino_6dof_test
+
 ::-----------------------------------------------------------------------------
 :: Get the OS Variant
 ::-----------------------------------------------------------------------------
@@ -18,6 +22,6 @@ set ProjectHome=%SCRIPT_DIR%
 set WorkspaceDir=%ProjectHome%\workspace
 set ThisProjTools=%ProjectHome%\tools
 
-%ThisProjTools%\eclipseArduino\eclipsec.exe -data %WorkspaceDir% -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -cleanBuild all -vmargs -Dorg.eclipse.cdt.core.console=org.eclipse.cdt.core.systemConsole %Vm-args%
+%ThisProjTools%\eclipseArduino\eclipsec.exe -data %WorkspaceDir% -nosplash --launcher.suppressErrors -application org.eclipse.cdt.managedbuilder.core.headlessbuild -cleanBuild %buildTarget% -vmargs -Dorg.eclipse.cdt.core.console=org.eclipse.cdt.core.systemConsole %Vm-args%
 
 EXIT /B %ERRORLEVEL%
