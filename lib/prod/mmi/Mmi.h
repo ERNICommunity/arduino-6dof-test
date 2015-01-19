@@ -18,9 +18,13 @@ class MmiAdapter
 public:
   virtual ~MmiAdapter() { }
 
-  virtual float getYawAngle() = 0;
+  virtual void sampleAngles() = 0;
 
-  virtual void resetYaw() = 0;
+  virtual float getYawAngle() = 0;
+  virtual float getRollAngle() = 0;
+  virtual float getPitchAngle() = 0;
+
+  virtual void resetAngles() = 0;
 
 protected:
   MmiAdapter() { }

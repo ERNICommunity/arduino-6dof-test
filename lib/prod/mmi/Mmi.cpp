@@ -12,7 +12,7 @@
 
 //-----------------------------------------------------------------------------
 
-const unsigned int cUpdateDisplayInterval = 200; // Display update interval [ms]
+const unsigned int cUpdateDisplayInterval = 500; // Display update interval [ms]
 class DisplayTimerAdapter : public TimerAdapter
 {
 private:
@@ -68,7 +68,8 @@ public:
       else if (LcdKeypad::LEFT_KEY == newKey)
       {
         // set Yaw angle to zero
-        m_mmi->adapter()->resetYaw();
+        Serial.println("handleKeyChanged(), resetYaw()");
+        m_mmi->adapter()->resetAngles();
       }
     }
   }
@@ -122,12 +123,24 @@ void Mmi::updateDisplay()
 {
   if ((0 != m_adapter) && (0 != m_lcdKeypad))
   {
+    m_adapter->sampleAngles();
+
     m_lcdKeypad->setCursor(0, 0);
 
-    m_lcdKeypad->print("Yaw: ");
+    m_lcdKeypad->print("Y:");
     m_lcdKeypad->print(m_adapter->getYawAngle(), 1);
     m_lcdKeypad->print("\337"); // print the degree character °
     m_lcdKeypad->print("                ");
+
+    m_lcdKeypad->setCursor(0, 1);
+
+    m_lcdKeypad->print("P:");
+    m_lcdKeypad->print(m_adapter->getPitchAngle(), 0);
+    m_lcdKeypad->print("\337"); // print the degree character °
+    m_lcdKeypad->print(" - R:");
+    m_lcdKeypad->print(m_adapter->getRollAngle(), 0);
+    m_lcdKeypad->print("\337"); // print the degree character °
+    m_lcdKeypad->print("           ");
   }
 }
 
