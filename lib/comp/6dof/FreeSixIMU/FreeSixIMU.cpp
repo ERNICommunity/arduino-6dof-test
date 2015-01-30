@@ -301,9 +301,8 @@ void FreeSixIMU::getAngles(float * angles) {
 
 void FreeSixIMU::getAccelXYZ(float * accelXYZ) {
   int x, y, z;
+
   acc.readAccel(&x, &y, &z);
-  //int a[3];
-  //acc.readAccel(a);
   accelXYZ[0] = (float)x * acc.gains[0];
   accelXYZ[1] = (float)y * acc.gains[1];
   accelXYZ[2] = (float)z * acc.gains[2];

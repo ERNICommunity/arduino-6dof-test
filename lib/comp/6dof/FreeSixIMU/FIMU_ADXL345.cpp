@@ -22,9 +22,11 @@ ADXL345::ADXL345() {
   status = ADXL345_OK;
   error_code = ADXL345_NO_ERROR;
 
-  gains[0] = 0.00376390;
-  gains[1] = 0.00376009;
-  gains[2] = 0.00349265;
+  //NOTE: commented default driver gains. Choosing gains according datasheet from analog devices (30.01.15, scan)
+
+  gains[0] = 0.0039;    //0.00376390;
+  gains[1] = 0.0039;    //0.00376009;
+  gains[2] = 0.0039;    //0.00349265;
 }
 
 void ADXL345::init(int address) {
