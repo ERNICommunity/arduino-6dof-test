@@ -58,6 +58,7 @@ class FreeSixIMU
     void getEuler(float * angles);
     void getYawPitchRoll(float * ypr);
     void getAngles(float * angles);
+    void getAccelXYZ(float * accelXYZ);
     
     
 	ADXL345 acc;

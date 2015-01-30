@@ -14,6 +14,9 @@ AMmiAdapter::AMmiAdapter(FreeSixIMU* freeSixIMU)
   m_angles[0] = 0.0;
   m_angles[1] = 0.0;
   m_angles[2] = 0.0;
+  m_accel[0] = 0.0;
+  m_accel[1] = 0.0;
+  m_accel[2] = 0.0;
 }
 
 AMmiAdapter::~AMmiAdapter()
@@ -40,6 +43,29 @@ float AMmiAdapter::getRollAngle()
 float AMmiAdapter::getYawAngle()
 {
   return (m_angles[0]);
+}
+
+void AMmiAdapter::sampleAccel()
+{
+  if (0 != m_freeSixIMU)
+  {
+    m_freeSixIMU->getAccelXYZ(m_accel);
+  }
+}
+
+float AMmiAdapter::getXAccel()
+{
+  return (m_accel[0]);
+}
+
+float AMmiAdapter::getYAccel()
+{
+  return (m_accel[1]);
+}
+
+float AMmiAdapter::getZAccel()
+{
+  return (m_accel[2]);
 }
 
 void AMmiAdapter::resetAngles()

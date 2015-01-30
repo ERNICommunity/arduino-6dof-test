@@ -6,9 +6,12 @@
  */
 
 #include "Arduino.h"
+
+#include "Mmi.h"
 #include "Timer.h"
 #include "LcdKeypad.h"
-#include "Mmi.h"
+#include "MmiScreenFsm.h"
+
 
 //-----------------------------------------------------------------------------
 
@@ -55,21 +58,17 @@ public:
                    (LcdKeypad::DOWN_KEY == newKey)   ? "DOWN_KEY"   :
                    (LcdKeypad::RIGHT_KEY == newKey)  ? "RIGHT_KEY"  : "OOPS!! Invalid value!!");
 
-    if ((0 != m_mmi) && (0 != m_mmi->adapter()) && (0 != m_mmi->lcdKeypad()))
+    if ((0 != m_mmi) && (0 != m_mmi->screenFsm()))
     {
-      if (LcdKeypad::UP_KEY == newKey)
+      switch(newKey)
       {
-        m_mmi->lcdKeypad()->setBackLightOn(true);
-      }
-      else if (LcdKeypad::DOWN_KEY == newKey)
-      {
-        m_mmi->lcdKeypad()->setBackLightOn(false);
-      }
-      else if (LcdKeypad::LEFT_KEY == newKey)
-      {
-        // set Yaw angle to zero
-        Serial.println("handleKeyChanged(), resetYaw()");
-        m_mmi->adapter()->resetAngles();
+        case LcdKeypad::SELECT_KEY: m_mmi->screenFsm()->select(); break;
+        case LcdKeypad::LEFT_KEY: m_mmi->screenFsm()->left();     break;
+        case LcdKeypad::RIGHT_KEY: m_mmi->screenFsm()->right();   break;
+        case LcdKeypad::UP_KEY: m_mmi->screenFsm()->up();         break;
+        case LcdKeypad::DOWN_KEY: m_mmi->screenFsm()->down();     break;
+        default:
+          break;
       }
     }
   }
@@ -81,6 +80,7 @@ Mmi::Mmi(MmiAdapter* adapter)
 : m_lcdKeypad(new LcdKeypad())
 , m_adapter(adapter)
 , m_displayTimer(new Timer(new DisplayTimerAdapter(this), Timer::IS_RECURRING, cUpdateDisplayInterval))
+, m_screenFsm(new MmiScreenFsm(this))
 {
   if (0 != m_lcdKeypad)
   {
@@ -119,28 +119,16 @@ LcdKeypad* Mmi::lcdKeypad()
   return m_lcdKeypad;
 }
 
+MmiScreenFsm* Mmi::screenFsm()
+{
+  return m_screenFsm;
+}
+
 void Mmi::updateDisplay()
 {
-  if ((0 != m_adapter) && (0 != m_lcdKeypad))
+  if (0 != screenFsm())
   {
-    m_adapter->sampleAngles();
-
-    m_lcdKeypad->setCursor(0, 0);
-
-    m_lcdKeypad->print("Y:");
-    m_lcdKeypad->print(m_adapter->getYawAngle(), 1);
-    m_lcdKeypad->print("\337"); // print the degree character °
-    m_lcdKeypad->print("                ");
-
-    m_lcdKeypad->setCursor(0, 1);
-
-    m_lcdKeypad->print("P:");
-    m_lcdKeypad->print(m_adapter->getPitchAngle(), 0);
-    m_lcdKeypad->print("\337"); // print the degree character °
-    m_lcdKeypad->print(" - R:");
-    m_lcdKeypad->print(m_adapter->getRollAngle(), 0);
-    m_lcdKeypad->print("\337"); // print the degree character °
-    m_lcdKeypad->print("           ");
+    screenFsm()->updateDisplay();
   }
 }
 

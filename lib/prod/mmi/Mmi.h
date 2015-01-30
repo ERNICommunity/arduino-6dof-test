@@ -10,6 +10,7 @@
 
 class LcdKeypad;
 class Timer;
+class MmiScreenFsm;
 
 //-----------------------------------------------------------------------------
 
@@ -19,10 +20,14 @@ public:
   virtual ~MmiAdapter() { }
 
   virtual void sampleAngles() = 0;
-
   virtual float getYawAngle() = 0;
   virtual float getRollAngle() = 0;
   virtual float getPitchAngle() = 0;
+
+  virtual void sampleAccel() = 0;
+  virtual float getXAccel() = 0;
+  virtual float getYAccel() = 0;
+  virtual float getZAccel() = 0;
 
   virtual void resetAngles() = 0;
 
@@ -46,13 +51,19 @@ public:
   MmiAdapter* adapter();
 
   LcdKeypad* lcdKeypad();
+  MmiScreenFsm* screenFsm();
 
   void updateDisplay();
+
+private:
+  void showAngles();
+  void showAccel();
 
 private:
   LcdKeypad* m_lcdKeypad;
   MmiAdapter* m_adapter;
   Timer* m_displayTimer;
+  MmiScreenFsm* m_screenFsm;
 
 private: // forbidden default functions
   Mmi& operator = (const Mmi& src); // assignment operator

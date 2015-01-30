@@ -19,10 +19,14 @@ public:
   virtual ~AMmiAdapter();
 
   void sampleAngles();
-
   float getYawAngle();
   float getRollAngle();
   float getPitchAngle();
+
+  void sampleAccel();
+  float getXAccel();
+  float getYAccel();
+  float getZAccel();
 
   void resetAngles();
 
@@ -30,6 +34,7 @@ public:
 private:
   FreeSixIMU* m_freeSixIMU;
   float m_angles[3];
+  float m_accel[3];
 
 private: // forbidden default functions
   AMmiAdapter& operator = (const AMmiAdapter& src);  // assignment operator
