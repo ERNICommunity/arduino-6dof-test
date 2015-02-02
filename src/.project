@@ -72,6 +72,11 @@
 			<locationURI>arduino_6dof_testLcdKeypad/LcdKeypad</locationURI>
 		</link>
 		<link>
+			<name>plat/RamUtils</name>
+			<type>2</type>
+			<locationURI>arduino_6dof_testRamUtils/RamUtils</locationURI>
+		</link>
+		<link>
 			<name>plat/Timer</name>
 			<type>2</type>
 			<locationURI>arduino_6dof_testTimer/Timer</locationURI>

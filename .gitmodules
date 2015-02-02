@@ -7,3 +7,6 @@
 	url = git@github.com:dniklaus/arduino-display-lcdkeypad.git
 	branch = Branch_1.0.1
 	
+[submodule "lib/plat/utils/mem"]
+	path = lib/plat/utils/mem
+	url = git@github.com:dniklaus/arduino-utils-mem.git

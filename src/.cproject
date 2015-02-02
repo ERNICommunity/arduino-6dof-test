@@ -35,6 +35,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/comp/LcdKeypad}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/mmi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/sockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/plat/RamUtils}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.2097245937" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
@@ -51,6 +52,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/comp/LcdKeypad}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/mmi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/prod/sockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/arduino_6dof_test/plat/RamUtils}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1812400738" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
