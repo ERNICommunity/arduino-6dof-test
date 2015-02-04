@@ -129,3 +129,59 @@ void MmiAccelScreen::updateDisplay()
     mmi()->lcdKeypad()->print("           ");
   }
 }
+
+//-----------------------------------------------------------------------------
+
+MmiMagnScreen::MmiMagnScreen(Mmi* mmi)
+: MmiScreen(mmi)
+{ }
+
+MmiMagnScreen::~MmiMagnScreen()
+{ }
+
+void MmiMagnScreen::setCursorUp()
+{
+  if (0 != mmi())
+  {
+    mmi()->lcdKeypad()->setBackLightOn(true);
+  }
+}
+
+void MmiMagnScreen::setCursorDown()
+{
+  if (0 != mmi())
+  {
+    mmi()->lcdKeypad()->setBackLightOn(false);
+  }
+}
+
+void MmiMagnScreen::updateDisplay()
+{
+  if ((0 != mmi()) && (0 != mmi()->lcdKeypad()) && (0 != mmi()->adapter()))
+  {
+    mmi()->adapter()->sampleMagn();
+
+    //-------------------------------------------
+    // LCD Display Line 1
+    //-------------------------------------------
+    mmi()->lcdKeypad()->setCursor(0, 0);
+
+    mmi()->lcdKeypad()->print("X:");
+    mmi()->lcdKeypad()->print(mmi()->adapter()->getXMagn(), 0);
+    //mmi()->lcdKeypad()->print("g"); // print g Unit
+    mmi()->lcdKeypad()->print("                ");
+
+    //-------------------------------------------
+    // LCD Display Line 2
+    //-------------------------------------------
+    mmi()->lcdKeypad()->setCursor(0, 1);
+
+    mmi()->lcdKeypad()->print("Y:");
+    mmi()->lcdKeypad()->print(mmi()->adapter()->getYMagn(), 0);
+    //mmi()->lcdKeypad()->print("g"); // print g Unit
+    mmi()->lcdKeypad()->print(" Z:");
+    mmi()->lcdKeypad()->print(mmi()->adapter()->getZMagn(), 0);
+    //mmi()->lcdKeypad()->print("g"); // print g Unit
+    mmi()->lcdKeypad()->print("           ");
+  }
+}

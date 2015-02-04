@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 FreeSixIMU::FreeSixIMU() {
 	acc = ADXL345();
 	gyro = ITG3200();
-	//magn = HMC58X3();
+  magn = HMC58X3();
 	
   // initialize quaternion
   q0 = 1.0f;
@@ -88,13 +88,13 @@ void FreeSixIMU::init(int acc_addr, int gyro_addr, bool fastmode) {
   gyro.zeroCalibrate(128,5);
   
   // init HMC5843
-  //magn.init(false); // Don't set mode yet, we'll do that later on.
+  magn.init(false); // Don't set mode yet, we'll do that later on.
   // Calibrate HMC using self test, not recommended to change the gain after calibration.
-  //magn.calibrate(1); // Use gain 1=default, valid 0-7, 7 not recommended.
+  magn.calibrate(1); // Use gain 1=default, valid 0-7, 7 not recommended.
   // Single mode conversion was used in calibration, now set continuous mode
-  //magn.setMode(0);
-  //delay(10);
-  //magn.setDOR(B110);
+  magn.setMode(0);
+  delay(10);
+  magn.setDOR(B110);
   
 }
 
@@ -102,7 +102,7 @@ void FreeSixIMU::init(int acc_addr, int gyro_addr, bool fastmode) {
 void FreeSixIMU::getRawValues(int * raw_values) {
   acc.readAccel(&raw_values[0], &raw_values[1], &raw_values[2]);
   gyro.readGyroRaw(&raw_values[3], &raw_values[4], &raw_values[5]);
-  //magn.getValues(&raw_values[6], &raw_values[7], &raw_values[8]);
+  magn.getValues(&raw_values[6], &raw_values[7], &raw_values[8]);
   
 }
 
@@ -116,7 +116,7 @@ void FreeSixIMU::getValues(float * values) {
   
   gyro.readGyro(&values[3]);
   
-  //magn.getValues(&values[6]);
+  magn.getValues(&values[6]);
 }
 
 
@@ -147,7 +147,6 @@ void FreeSixIMU::AHRSupdate(float gx, float gy, float gz, float ax, float ay, fl
   q3q3 = q3 * q3;
   
   
-  /*
   // Use magnetometer measurement only when valid (avoids NaN in magnetometer normalisation)
   if((mx != 0.0f) && (my != 0.0f) && (mz != 0.0f)) {
     float hx, hy, bx, bz;
@@ -175,7 +174,6 @@ void FreeSixIMU::AHRSupdate(float gx, float gy, float gz, float ax, float ay, fl
     halfey = (mz * halfwx - mx * halfwz);
     halfez = (mx * halfwy - my * halfwx);
   }
-  */
 
   // Compute feedback only if accelerometer measurement valid (avoids NaN in accelerometer normalisation)
   if((ax != 0.0f) && (ay != 0.0f) && (az != 0.0f)) {
@@ -263,9 +261,9 @@ void FreeSixIMU::getQ(float * q) {
   sampleFreq = 1.0 / ((now - lastUpdate) / 1000000.0);
   lastUpdate = now;
   // gyro values are expressed in deg/sec, the * M_PI/180 will convert it to radians/sec
-  //AHRSupdate(val[3] * M_PI/180, val[4] * M_PI/180, val[5] * M_PI/180, val[0], val[1], val[2], val[6], val[7], val[8]);
+  AHRSupdate(val[3] * M_PI/180, val[4] * M_PI/180, val[5] * M_PI/180, val[0], val[1], val[2], val[6], val[7], val[8]);
   // use the call below when using a 6DOF IMU
-  AHRSupdate(val[3] * M_PI/180, val[4] * M_PI/180, val[5] * M_PI/180, val[0], val[1], val[2], 0, 0, 0);
+  //AHRSupdate(val[3] * M_PI/180, val[4] * M_PI/180, val[5] * M_PI/180, val[0], val[1], val[2], 0, 0, 0);
   q[0] = q0;
   q[1] = q1;
   q[2] = q2;
@@ -306,6 +304,15 @@ void FreeSixIMU::getAccelXYZ(float * accelXYZ) {
   accelXYZ[0] = (float)x * acc.gains[0];
   accelXYZ[1] = (float)y * acc.gains[1];
   accelXYZ[2] = (float)z * acc.gains[2];
+}
+
+void FreeSixIMU::getMagnXYZ(float * magnXYZ) {
+  float m[9];
+
+  getValues(m);
+  magnXYZ[0] = m[6];  //X
+  magnXYZ[1] = m[7];  //Y
+  magnXYZ[2] = m[8];  //Z
 }
 
 

@@ -95,7 +95,7 @@ void MmiAccelScreenState::select(MmiScreenFsm* fsm)
 {
   if ((0 != screen()) && (0 != fsm))
   {
-      fsm->changeState(MmiAngleScreenState::Instance());
+      fsm->changeState(MmiMagnScreenState::Instance());
   }
 }
 
@@ -116,6 +116,54 @@ void MmiAccelScreenState::down(MmiScreenFsm* fsm)
 }
 
 void MmiAccelScreenState::entry(MmiScreenFsm* fsm)
+{
+  Serial.println(toString());
+  updateDisplay();
+}
+
+//-----------------------------------------------------------------------------
+
+MmiScreenState* MmiMagnScreenState::s_instance = 0;
+
+MmiScreenState* MmiMagnScreenState::Instance()
+{
+  if (0 == s_instance)
+  {
+    s_instance = new MmiMagnScreenState();
+  }
+  return s_instance;
+}
+
+const char* MmiMagnScreenState::toString()
+{
+  return "MagnScreenState";
+}
+
+void MmiMagnScreenState::select(MmiScreenFsm* fsm)
+{
+  if ((0 != screen()) && (0 != fsm))
+  {
+      fsm->changeState(MmiAngleScreenState::Instance());
+  }
+}
+
+void MmiMagnScreenState::up(MmiScreenFsm* fsm)
+{
+  if (0 != screen())
+  {
+    screen()->setCursorUp();
+  }
+}
+
+void MmiMagnScreenState::down(MmiScreenFsm* fsm)
+{
+  if (0 != screen())
+  {
+    screen()->setCursorDown();
+  }
+}
+
+void MmiMagnScreenState::entry(MmiScreenFsm* fsm)
 {
   Serial.println(toString());
   updateDisplay();

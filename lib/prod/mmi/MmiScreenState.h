@@ -98,4 +98,32 @@ private: // forbidden default functions
 
 };
 
+//-----------------------------------------------------------------------------
+
+class MmiMagnScreenState : public MmiScreenState
+{
+private:
+  MmiMagnScreenState() { }
+
+public:
+  static MmiScreenState* Instance();
+
+  virtual ~MmiMagnScreenState() { }
+
+  virtual void select(MmiScreenFsm* fsm);
+  virtual void up(MmiScreenFsm* fsm)    ;
+  virtual void down(MmiScreenFsm* fsm)  ;
+  virtual void entry(MmiScreenFsm* fsm) ;
+
+  virtual const char* toString();
+
+private:
+  static MmiScreenState* s_instance;
+
+private: // forbidden default functions
+  MmiMagnScreenState& operator = (const MmiMagnScreenState& src); // assignment operator
+  MmiMagnScreenState(const MmiMagnScreenState& src);              // copy constructor
+
+};
+
 #endif /* MMI_MMISCREENSTATE_H_ */

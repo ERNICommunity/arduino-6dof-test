@@ -65,4 +65,20 @@ private: // forbidden default functions
   MmiAccelScreen(const MmiAccelScreen& src);               // copy constructor
 };
 
+//-----------------------------------------------------------------------------
+
+class MmiMagnScreen : public MmiScreen
+{
+public:
+  MmiMagnScreen(Mmi* mmi);
+  virtual ~MmiMagnScreen();
+  virtual void updateDisplay();
+  virtual void setCursorUp();
+  virtual void setCursorDown();
+
+private: // forbidden default functions
+  MmiMagnScreen& operator = (const MmiMagnScreen& src);  // assignment operator
+  MmiMagnScreen(const MmiMagnScreen& src);               // copy constructor
+};
+
 #endif /* MMI_MMISCREEN_H_ */

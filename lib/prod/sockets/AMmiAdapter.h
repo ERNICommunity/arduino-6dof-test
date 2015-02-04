@@ -28,6 +28,11 @@ public:
   float getYAccel();
   float getZAccel();
 
+  void sampleMagn();
+  float getXMagn();
+  float getYMagn();
+  float getZMagn();
+
   void resetAngles();
 
 
@@ -35,6 +40,7 @@ private:
   FreeSixIMU* m_freeSixIMU;
   float m_angles[3];
   float m_accel[3];
+  float m_magn[3];
 
 private: // forbidden default functions
   AMmiAdapter& operator = (const AMmiAdapter& src);  // assignment operator

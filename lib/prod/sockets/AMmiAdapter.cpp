@@ -17,6 +17,9 @@ AMmiAdapter::AMmiAdapter(FreeSixIMU* freeSixIMU)
   m_accel[0] = 0.0;
   m_accel[1] = 0.0;
   m_accel[2] = 0.0;
+  m_magn[0] = 0.0;
+  m_magn[1] = 0.0;
+  m_magn[2] = 0.0;
 }
 
 AMmiAdapter::~AMmiAdapter()
@@ -66,6 +69,29 @@ float AMmiAdapter::getYAccel()
 float AMmiAdapter::getZAccel()
 {
   return (m_accel[2]);
+}
+
+void AMmiAdapter::sampleMagn()
+{
+  if (0 != m_freeSixIMU)
+  {
+    m_freeSixIMU->getMagnXYZ(m_magn);
+  }
+}
+
+float AMmiAdapter::getXMagn()
+{
+  return (m_magn[0]);
+}
+
+float AMmiAdapter::getYMagn()
+{
+  return (m_magn[1]);
+}
+
+float AMmiAdapter::getZMagn()
+{
+  return (m_magn[2]);
 }
 
 void AMmiAdapter::resetAngles()

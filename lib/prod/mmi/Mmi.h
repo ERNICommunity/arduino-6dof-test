@@ -29,6 +29,11 @@ public:
   virtual float getYAccel() = 0;
   virtual float getZAccel() = 0;
 
+  virtual void sampleMagn() = 0;
+  virtual float getXMagn() = 0;
+  virtual float getYMagn() = 0;
+  virtual float getZMagn() = 0;
+
   virtual void resetAngles() = 0;
 
 protected:

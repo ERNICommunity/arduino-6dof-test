@@ -25,6 +25,11 @@ MmiScreenFsm::MmiScreenFsm(Mmi* mmi)
   Serial.print("MmiScreenFsm ctor: created state ");
   Serial.println(m_state->toString());
 
+  m_state = MmiMagnScreenState::Instance();
+  m_state->attachScreen(new MmiMagnScreen(mmi));
+  Serial.print("MmiScreenFsm ctor: created state ");
+  Serial.println(m_state->toString());
+
 }
 
 MmiScreenFsm::~MmiScreenFsm()
@@ -34,6 +39,9 @@ MmiScreenFsm::~MmiScreenFsm()
 
   delete MmiAccelScreenState::Instance()->screen();
   MmiAccelScreenState::Instance()->attachScreen(0);
+
+  delete MmiMagnScreenState::Instance()->screen();
+  MmiMagnScreenState::Instance()->attachScreen(0);
 }
 
 void MmiScreenFsm::select()
