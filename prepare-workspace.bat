@@ -1,24 +1,39 @@
 @echo off
 ::-----------------------------------------------------------------------------
+:: Paths
+::-----------------------------------------------------------------------------
+set SCRIPT_DIR=%~dp0%
+set ProjectHome=%SCRIPT_DIR:~0,-1%
+set WorkspaceDir=%ProjectHome%\workspace
+set ArduinoTools=%ProjectHome%\..\Tools
+set ThisProjTools=%ProjectHome%\tools
+
+::-----------------------------------------------------------------------------
+:: Load Script Environment / Configuration
+::-----------------------------------------------------------------------------
+for /f "delims=" %%x in (%ProjectHome%\env.config) do (set "%%x")
+
+
+::-----------------------------------------------------------------------------
 :: Configured Settings
 ::-----------------------------------------------------------------------------
 :: Processing IDE (see https://www.processing.org/download/?processing) 
 :: http://download.processing.org/processing-2.2.1-windows64.zip
 :: http://download.processing.org/processing-2.2.1-windows32.zip
-set ProcessingDownloadUrl=http://download.processing.org
-set ProcessingVer=2.2.1
+::set ProcessingDownloadUrl=http://download.processing.org ::to be set in env.config
+::set ProcessingVer=2.2.1 ::to be set in env.config
 
 :: Arduino IDE (see http://arduino.cc/en/Main/OldSoftwareReleases) 
-set ArduinoDownloadUrl=http://arduino.cc/download.php?f=
-set ArduinoVer=1.5.6-r2
+::set ArduinoDownloadUrl=http://arduino.cc/download.php?f=
+::set ArduinoVer=1.5.6-r2 ::to be set in env.config
 
 :: Eclipse Arduino Workbench Bundle (see http://www.baeyens.it/eclipse/download.php)
-set EclipseArduinoDownloadUrl=http://www.baeyens.it/eclipse/download/product
-set EclipseArduinoVer=2015-01-13_02-06-58
+::set EclipseArduinoDownloadUrl=http://www.baeyens.it/eclipse/download/product
+::set EclipseArduinoVer=2015-01-13_02-06-58 ::to be set in env.config
 
 :: Expected Project Location (Eclipse CDT cannot deal with relative paths)
-set ArduinoProjects=C:\git\arduino-projects
-set ExpectedProjectHome=%ArduinoProjects%\arduino-6dof-test\
+:: set ArduinoProjects=C:\git\arduino-projects ::to be set in env.config
+set ExpectedProjectHome=%ArduinoProjects%\%ProjectSubDir%
 
 ::-----------------------------------------------------------------------------
 :: Get the OS Variant
@@ -28,15 +43,6 @@ IF "%PROCESSOR_ARCHITECTURE%;%PROCESSOR_ARCHITEW6432%"=="x86;" (
 ) ELSE (
   set OsVariant=win64
 )
-
-::-----------------------------------------------------------------------------
-:: Paths
-::-----------------------------------------------------------------------------
-set SCRIPT_DIR=%~dp0%
-set ProjectHome=%SCRIPT_DIR%
-set WorkspaceDir=%ProjectHome%\workspace
-set ArduinoTools=%ProjectHome%\..\Tools
-set ThisProjTools=%ProjectHome%\tools
 
 ::-----------------------------------------------------------------------------
 :: Assert correct path
