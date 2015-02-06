@@ -36,12 +36,15 @@ MmiScreenFsm::~MmiScreenFsm()
 {
   delete MmiAngleScreenState::Instance()->screen();
   MmiAngleScreenState::Instance()->attachScreen(0);
+  delete MmiAngleScreenState::Instance();
 
   delete MmiAccelScreenState::Instance()->screen();
   MmiAccelScreenState::Instance()->attachScreen(0);
+  delete MmiAccelScreenState::Instance();
 
   delete MmiMagnScreenState::Instance()->screen();
   MmiMagnScreenState::Instance()->attachScreen(0);
+  delete MmiMagnScreenState::Instance();
 }
 
 void MmiScreenFsm::select()

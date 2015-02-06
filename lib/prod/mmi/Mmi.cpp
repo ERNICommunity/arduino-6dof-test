@@ -97,6 +97,9 @@ Mmi::~Mmi()
   delete m_lcdKeypad;
   m_lcdKeypad = 0;
 
+  delete m_screenFsm;
+  m_screenFsm = 0;
+
   delete m_displayTimer->adapter();
   m_displayTimer->attachAdapter(0);
 
