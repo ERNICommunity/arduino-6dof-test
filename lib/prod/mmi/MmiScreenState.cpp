@@ -51,6 +51,14 @@ void MmiAngleScreenState::select(MmiScreenFsm* fsm)
   }
 }
 
+void MmiAngleScreenState::left(MmiScreenFsm* fsm)
+{
+  if (0 != screen())
+  {
+    screen()->setCursorLeft();
+  }
+}
+
 void MmiAngleScreenState::up(MmiScreenFsm* fsm)
 {
   if (0 != screen())
@@ -99,6 +107,14 @@ void MmiAccelScreenState::select(MmiScreenFsm* fsm)
   }
 }
 
+void MmiAccelScreenState::left(MmiScreenFsm* fsm)
+{
+  if (0 != screen())
+  {
+    screen()->setCursorLeft();
+  }
+}
+
 void MmiAccelScreenState::up(MmiScreenFsm* fsm)
 {
   if (0 != screen())
@@ -144,6 +160,14 @@ void MmiMagnScreenState::select(MmiScreenFsm* fsm)
   if ((0 != screen()) && (0 != fsm))
   {
       fsm->changeState(MmiAngleScreenState::Instance());
+  }
+}
+
+void MmiMagnScreenState::left(MmiScreenFsm* fsm)
+{
+  if (0 != screen())
+  {
+    screen()->setCursorLeft();
   }
 }
 

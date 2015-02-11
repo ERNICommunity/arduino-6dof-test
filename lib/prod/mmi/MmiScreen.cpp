@@ -43,6 +43,14 @@ void MmiAngleScreen::setCursorDown()
   }
 }
 
+void MmiAngleScreen::setCursorLeft()
+{
+  if((0 != mmi()) && (0 != mmi()->adapter()))
+  {
+    mmi()->adapter()->resetAngles();
+  }
+}
+
 void MmiAngleScreen::updateDisplay()
 {
   if ((0 != mmi()) && (0 != mmi()->lcdKeypad()) && (0 != mmi()->adapter()))
@@ -99,6 +107,14 @@ void MmiAccelScreen::setCursorDown()
   }
 }
 
+void MmiAccelScreen::setCursorLeft()
+{
+  if((0 != mmi()) && (0 != mmi()->adapter()))
+  {
+    mmi()->adapter()->resetAngles();
+  }
+}
+
 void MmiAccelScreen::updateDisplay()
 {
   if ((0 != mmi()) && (0 != mmi()->lcdKeypad()) && (0 != mmi()->adapter()))
@@ -152,6 +168,14 @@ void MmiMagnScreen::setCursorDown()
   if (0 != mmi())
   {
     mmi()->lcdKeypad()->setBackLightOn(false);
+  }
+}
+
+void MmiMagnScreen::setCursorLeft()
+{
+  if((0 != mmi()) && (0 != mmi()->adapter()))
+  {
+    mmi()->adapter()->resetAngles();
   }
 }
 

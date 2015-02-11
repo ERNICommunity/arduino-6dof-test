@@ -55,6 +55,7 @@ public:
   virtual ~MmiAngleScreenState() { }
 
   virtual void select(MmiScreenFsm* fsm);
+  virtual void left(MmiScreenFsm* fsm)  ;
   virtual void up(MmiScreenFsm* fsm)    ;
   virtual void down(MmiScreenFsm* fsm)  ;
   virtual void entry(MmiScreenFsm* fsm) ;
@@ -83,6 +84,7 @@ public:
   virtual ~MmiAccelScreenState() { }
 
   virtual void select(MmiScreenFsm* fsm);
+  virtual void left(MmiScreenFsm* fsm)  ;
   virtual void up(MmiScreenFsm* fsm)    ;
   virtual void down(MmiScreenFsm* fsm)  ;
   virtual void entry(MmiScreenFsm* fsm) ;
@@ -111,6 +113,7 @@ public:
   virtual ~MmiMagnScreenState() { }
 
   virtual void select(MmiScreenFsm* fsm);
+  virtual void left(MmiScreenFsm* fsm)  ;
   virtual void up(MmiScreenFsm* fsm)    ;
   virtual void down(MmiScreenFsm* fsm)  ;
   virtual void entry(MmiScreenFsm* fsm) ;

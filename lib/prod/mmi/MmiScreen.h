@@ -43,6 +43,7 @@ public:
   virtual void updateDisplay();
   virtual void setCursorUp();
   virtual void setCursorDown();
+  virtual void setCursorLeft();
 
 private: // forbidden default functions
   MmiAngleScreen& operator = (const MmiAngleScreen& src);  // assignment operator
@@ -59,6 +60,7 @@ public:
   virtual void updateDisplay();
   virtual void setCursorUp();
   virtual void setCursorDown();
+  virtual void setCursorLeft();
 
 private: // forbidden default functions
   MmiAccelScreen& operator = (const MmiAccelScreen& src);  // assignment operator
@@ -75,6 +77,7 @@ public:
   virtual void updateDisplay();
   virtual void setCursorUp();
   virtual void setCursorDown();
+  virtual void setCursorLeft();
 
 private: // forbidden default functions
   MmiMagnScreen& operator = (const MmiMagnScreen& src);  // assignment operator
